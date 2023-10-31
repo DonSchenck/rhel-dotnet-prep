@@ -1,0 +1,13 @@
+- hosts: localhost
+
+  tasks:
+  - name: Add the Podman flatpak remote to the system installation
+    community.general.flatpak_remote:
+      name: podman
+      state: present
+      flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    
+  - name: Install Podman Desktop
+    community.general.flatpak:
+      name: io.podman_desktop.PodmanDesktop
+      state: present

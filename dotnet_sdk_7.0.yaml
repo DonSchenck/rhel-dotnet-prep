@@ -1,0 +1,10 @@
+- name: install dotnet
+  hosts: localhost
+  remote_user: admin
+  become: true
+
+  tasks:
+  - name: Install DotNet
+    ansible.builtin.yum:
+      name: dotnet-sdk-7.0.x86_64
+      state: present
